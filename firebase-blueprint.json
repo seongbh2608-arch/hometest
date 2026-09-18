@@ -1,0 +1,91 @@
+{
+  "entities": {
+    "Reservation": {
+      "title": "Reservation",
+      "description": "Assessment class reservation for a student at JARADA Boys' Art Academy",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "User ID of the parent making the reservation"
+        },
+        "userEmail": {
+          "type": "string",
+          "description": "Email of the parent"
+        },
+        "parentName": {
+          "type": "string",
+          "description": "Name of the parent"
+        },
+        "parentPhone": {
+          "type": "string",
+          "description": "Contact phone number of the parent"
+        },
+        "childName": {
+          "type": "string",
+          "description": "Name of the boy/student"
+        },
+        "childAge": {
+          "type": "number",
+          "description": "Age of the student (5 to 12 years old)"
+        },
+        "branchName": {
+          "type": "string",
+          "description": "Target JARADA academy branch/center"
+        },
+        "reservationDate": {
+          "type": "string",
+          "description": "Date of the assessment class (YYYY-MM-DD)"
+        },
+        "timeSlot": {
+          "type": "string",
+          "description": "Time slot of the appointment"
+        },
+        "consultationNote": {
+          "type": "string",
+          "description": "Parent's concerns or specific interests for consultation"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "confirmed", "cancelled"],
+          "description": "Current status of the reservation"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO timestamp of creation"
+        }
+      },
+      "required": ["userId", "childName", "branchName", "reservationDate", "timeSlot", "status"]
+    },
+    "TestimonialReaction": {
+      "title": "TestimonialReaction",
+      "description": "Real-time reaction and like count for parent community feedback",
+      "type": "object",
+      "properties": {
+        "testimonialId": {
+          "type": "string",
+          "description": "ID of the testimonial item"
+        },
+        "likesCount": {
+          "type": "number",
+          "description": "Total number of likes"
+        },
+        "likedBy": {
+          "type": "array",
+          "description": "Array of user IDs who liked this testimonial"
+        }
+      },
+      "required": ["testimonialId", "likesCount"]
+    }
+  },
+  "firestore": {
+    "/reservations/{reservationId}": {
+      "schema": "Reservation",
+      "description": "Assessment class reservations made by parents"
+    },
+    "/testimonialReactions/{testimonialId}": {
+      "schema": "TestimonialReaction",
+      "description": "Live likes and reactions for community testimonials"
+    }
+  }
+}

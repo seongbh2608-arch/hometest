@@ -1,0 +1,6 @@
+{
+  "name": "자라다 남아미술학원",
+  "description": "오직 아들을 위한 전문 남아미술학원 자라다 - 1:1 성향파악 수업 실시간 예약 및 커리큘럼 소개",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
